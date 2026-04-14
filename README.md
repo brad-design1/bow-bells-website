@@ -29,6 +29,8 @@ python -m http.server 8000
 website/
 ├── index.html          # Main website file
 ├── README.md           # This file
+├── exterior.jpg        # Storefront photo
+├── sausage-rolls.jpg   # Award-winning product photo
 └── (assets/)*          # Future: images, CSS, JS
 ```
 
@@ -40,25 +42,16 @@ See `../website-design-system.md` for full design documentation including:
 - Component library
 - Responsive breakpoints
 
-## 🖼️ Images Needed
+## 🖼️ Images Used
 
-Replace placeholder Unsplash URLs with real Bow Bells photography:
-
-1. **Hero Background** - Interior with customers or product spread
-2. **Story Section** - Historical/current bakery shots
-3. **Menu Items** - Individual product photos (sausage rolls, granola, sourdough, wheaten bread)
-4. **Team** - Staff portraits
-5. **Location** - Exterior with lighthouse
-
-### Image Specifications
-- Format: WebP (with JPEG fallback)
-- Hero: 1920x1080 minimum
-- Menu items: 800x800 (1:1 ratio)
-- Optimize for web (TinyPNG, Squoosh)
+- **exterior.jpg** - Bow Bells storefront (black facade, gold signage)
+- **sausage-rolls.jpg** - Award-winning sausage rolls
+- Placeholder images from Unsplash for other menu items
 
 ## ⚡ Performance Checklist
 
-- [ ] Replace placeholder images
+- [x] Replace hero with real exterior photo
+- [x] Replace sausage roll with real product photo
 - [ ] Add real Google Maps embed URL
 - [ ] Add actual contact info/phone
 - [ ] Set up Stripe for online ordering
@@ -67,52 +60,9 @@ Replace placeholder Unsplash URLs with real Bow Bells photography:
 - [ ] Test on mobile devices
 - [ ] Lighthouse score 90+
 
-## 🔧 Customization
-
-### Colors
-Edit CSS variables in `index.html`:
-```css
-:root {
-    --heritage-cream: #F5F0E8;
-    --rich-brown: #3D2314;
-    --amber-gold: #C17817;
-    /* ... etc */
-}
-```
-
-### Content
-Update text content in HTML:
-- Opening hours
-- Contact information
-- Menu prices
-- Award details
-
-## 🌐 SEO Checklist
-
-- [ ] Meta description updated
-- [ ] Open Graph tags added
-- [ ] Schema.org LocalBusiness markup
-- [ ] Google My Business linked
-- [ ] Sitemap.xml created
-- [ ] robots.txt configured
-
-## 📱 Social Media Integration
-
-- Facebook: Link verified
-- Instagram: Add when account created
-- Google Reviews: Embed or link
-
-## 🐕 Known Features
-
-- Dog-friendly badge displayed
-- Award badges on products
-- Mobile-responsive navigation
-- Smooth scroll animations
-- Sticky header
-
 ## 📞 Next Steps
 
-1. **Photography** - Commission professional shots
+1. **Photography** - Add more real product photos
 2. **Content** - Finalize menu, prices, hours
 3. **E-commerce** - Integrate Stripe for payments
 4. **Launch** - Deploy and announce
@@ -120,6 +70,7 @@ Update text content in HTML:
 
 ---
 
-**Created:** April 2026
-**Designer:** Genesis Labs
+**Created:** April 2026  
+**Updated:** April 14, 2026  
+**Designer:** Genesis Labs  
 **Client:** Bow Bells Coffee House & Bakery
