@@ -1,0 +1,193 @@
+.mc {
+  width: 100%;
+}
+
+.mc-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.mc-progress {
+  flex: 1;
+  height: 1px;
+  background: rgba(61, 35, 20, 0.14);
+  position: relative;
+  overflow: hidden;
+  max-width: 280px;
+}
+
+.mc-progress-bar {
+  position: absolute;
+  inset: 0;
+  background: #3D2314;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.2s ease-out;
+}
+
+.mc-buttons { display: flex; gap: 10px; }
+
+.mc-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid rgba(61, 35, 20, 0.22);
+  background: transparent;
+  color: #3D2314;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+.mc-btn:hover {
+  background: #3D2314;
+  color: #F5F0E8;
+  border-color: #3D2314;
+}
+
+.mc-btn:active { transform: scale(0.96); }
+
+.mc-scroller {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 24px;
+  padding: 12px 4px 32px;
+  margin: 0 -4px;
+  scrollbar-width: none;
+}
+.mc-scroller::-webkit-scrollbar { display: none; }
+
+.mc-card {
+  flex: 0 0 auto;
+  width: clamp(280px, 34vw, 380px);
+  background: #FFFFFF;
+  border-radius: 18px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  box-shadow: 0 2px 8px rgba(30, 25, 18, 0.06);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.6s ease;
+  opacity: 0.78;
+  transform: scale(0.96);
+  display: flex;
+  flex-direction: column;
+}
+
+.mc-card.is-focused {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 20px 44px rgba(30, 25, 18, 0.14);
+}
+
+.mc-card-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.mc-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mc-card:hover .mc-card-media img {
+  transform: scale(1.06);
+}
+
+.mc-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #C17817;
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mc-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.mc-card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.mc-card-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #3D2314;
+}
+
+.mc-card-price {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.1rem;
+  color: #C17817;
+  font-weight: 500;
+}
+
+.mc-card-meta {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6B5B4F;
+  margin-bottom: 6px;
+}
+
+.mc-card-desc {
+  color: #6B5B4F;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+.mc-card-action {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(61, 35, 20, 0.2);
+  background: transparent;
+  color: #3D2314;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, gap 0.3s ease;
+}
+
+.mc-card-action:hover {
+  background: #3D2314;
+  color: #F5F0E8;
+  border-color: #3D2314;
+  gap: 12px;
+}
+
+@media (max-width: 720px) {
+  .mc-controls { margin-bottom: 20px; }
+  .mc-card { width: 78vw; }
+}

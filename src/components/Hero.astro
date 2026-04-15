@@ -1,0 +1,216 @@
+---
+// Full-bleed, editorial hero
+---
+
+<section class="hero" id="top">
+  <div class="hero-media">
+    <img
+      src="/photos/exterior.jpg"
+      alt="Bow Bells Coffee House storefront in Donaghadee"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div class="hero-scrim" aria-hidden="true"></div>
+  </div>
+
+  <div class="hero-inner container">
+    <div class="hero-meta">
+      <span class="hero-est">Est. 1975 · Donaghadee</span>
+      <span class="hero-dot">●</span>
+      <span class="hero-award">Irish Food Award Winner</span>
+    </div>
+
+    <h1 class="hero-title">
+      <span class="hero-line">Baked before</span>
+      <span class="hero-line italic-serif">the town wakes.</span>
+    </h1>
+
+    <p class="hero-lede">
+      Four generations of coffee, bread, and pastry from the corner of High
+      Street. Still made by hand, still warm when it hits the counter.
+    </p>
+
+    <div class="hero-cta">
+      <a href="#menu" class="btn btn-accent">Explore the menu</a>
+      <a href="#visit" class="btn btn-ghost-light">Plan your visit</a>
+    </div>
+  </div>
+
+  <div class="hero-tickline" aria-hidden="true">
+    <div class="hero-tickline-track">
+      <span>Sourdough</span><span>·</span>
+      <span>Single-origin Coffee</span><span>·</span>
+      <span>All-butter Pastry</span><span>·</span>
+      <span>Award-Winning Sausage Rolls</span><span>·</span>
+      <span>Granola</span><span>·</span>
+      <span>Wheaten Bread</span><span>·</span>
+      <span>Sourdough</span><span>·</span>
+      <span>Single-origin Coffee</span><span>·</span>
+      <span>All-butter Pastry</span><span>·</span>
+      <span>Award-Winning Sausage Rolls</span><span>·</span>
+      <span>Granola</span><span>·</span>
+      <span>Wheaten Bread</span><span>·</span>
+    </div>
+  </div>
+
+  <a href="#story" class="hero-scroll-indicator" aria-label="Scroll to story">
+    <span>Scroll</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </a>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    padding-top: 120px;
+    padding-bottom: 80px;
+    overflow: hidden;
+    color: var(--cream);
+    isolation: isolate;
+  }
+
+  .hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 60%;
+    transform: scale(1.05);
+    animation: heroZoom 14s ease-out forwards;
+  }
+
+  @keyframes heroZoom {
+    to { transform: scale(1); }
+  }
+
+  .hero-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(30, 25, 18, 0.55) 0%, rgba(30, 25, 18, 0.30) 40%, rgba(30, 25, 18, 0.75) 100%);
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1100px;
+  }
+
+  .hero-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.9;
+    margin-bottom: 28px;
+    padding: 8px 18px;
+    border: 1px solid rgba(245, 240, 232, 0.3);
+    border-radius: var(--radius-pill);
+    background: rgba(30, 25, 18, 0.25);
+    backdrop-filter: blur(6px);
+  }
+
+  .hero-dot { color: var(--amber); font-size: 0.6rem; }
+
+  .hero-title {
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 350;
+    line-height: 0.95;
+    margin-bottom: 28px;
+    max-width: 14ch;
+  }
+
+  .hero-line {
+    display: block;
+  }
+
+  .hero-line.italic-serif {
+    color: var(--amber);
+    margin-left: 1em;
+  }
+
+  .hero-lede {
+    max-width: 44ch;
+    font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+    line-height: 1.55;
+    opacity: 0.92;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  /* Scrolling tagline strip at bottom */
+  .hero-tickline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(245, 240, 232, 0.18);
+    border-bottom: 1px solid rgba(245, 240, 232, 0.18);
+    background: rgba(30, 25, 18, 0.35);
+    backdrop-filter: blur(4px);
+    z-index: 2;
+  }
+
+  .hero-tickline-track {
+    display: flex;
+    gap: 28px;
+    padding: 18px 0;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--cream);
+    white-space: nowrap;
+    animation: tickline 40s linear infinite;
+    width: max-content;
+  }
+
+  .hero-tickline-track span { flex-shrink: 0; }
+
+  @keyframes tickline {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .hero-scroll-indicator {
+    position: absolute;
+    right: clamp(1.25rem, 4vw, 2.5rem);
+    bottom: 90px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.8;
+    z-index: 2;
+  }
+
+  @media (max-width: 720px) {
+    .hero-line.italic-serif { margin-left: 0; }
+    .hero-scroll-indicator { display: none; }
+    .hero-tickline-track { font-size: 0.88rem; }
+  }
+</style>

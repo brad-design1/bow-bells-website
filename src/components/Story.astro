@@ -1,0 +1,202 @@
+---
+// Asymmetric, editorial story section
+---
+
+<section class="story section" id="story">
+  <div class="container">
+    <div class="story-grid">
+      <aside class="story-media reveal">
+        <figure class="story-figure">
+          <img
+            src="https://images.unsplash.com/photo-1568254183919-78a4f43a2877?w=1100&q=75"
+            alt="Baker shaping dough at dawn"
+            loading="lazy"
+          />
+          <figcaption>Shaping dough, 5:00 am</figcaption>
+        </figure>
+        <figure class="story-figure story-figure--offset">
+          <img
+            src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=900&q=75"
+            alt="Sourdough cooling on the counter"
+            loading="lazy"
+          />
+          <figcaption>Sourdough, cooling</figcaption>
+        </figure>
+      </aside>
+
+      <div class="story-content reveal">
+        <span class="eyebrow">Our Story</span>
+
+        <h2 class="story-title">
+          A bakery built on
+          <span class="italic-serif amber">patience,</span>
+          time, and a very good oven.
+        </h2>
+
+        <p>
+          In 1975, the Millar family opened a small bakery on Donaghadee's High
+          Street. No branding consultants, no quarterly reports, no shortcuts —
+          just an eight-deck oven, a family recipe for wheaten bread, and the
+          stubborn belief that good food takes its time.
+        </p>
+
+        <blockquote class="story-quote">
+          "If it's worth eating, it's worth doing properly. You can taste the
+          rush."
+          <cite>— Jim Millar, founder</cite>
+        </blockquote>
+
+        <p>
+          Fifty years later, the oven is newer and the coffee machine takes up
+          more room than it used to. Almost everything else is the same. We
+          mill, mix, proof, and bake in the same building. The queue on a
+          Saturday morning is the same. The recipe on the sausage roll — the
+          one that brought home the Irish Food Award — is the same.
+        </p>
+
+        <div class="story-stats">
+          <div>
+            <span class="stat-num serif">5am</span>
+            <span class="stat-label">Daily bake starts</span>
+          </div>
+          <div>
+            <span class="stat-num serif">36hr</span>
+            <span class="stat-label">Sourdough ferment</span>
+          </div>
+          <div>
+            <span class="stat-num serif">4</span>
+            <span class="stat-label">Generations baking</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .story {
+    background: var(--cream-soft);
+  }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: center;
+  }
+
+  .story-media {
+    position: relative;
+    display: grid;
+    gap: 24px;
+  }
+
+  .story-figure {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .story-figure img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    transition: transform 1.2s var(--ease-out);
+  }
+
+  .story-figure:hover img { transform: scale(1.04); }
+
+  .story-figure figcaption {
+    position: absolute;
+    bottom: 14px;
+    left: 16px;
+    padding: 6px 12px;
+    background: rgba(30, 25, 18, 0.72);
+    color: var(--cream);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.82rem;
+    border-radius: var(--radius-pill);
+    backdrop-filter: blur(4px);
+  }
+
+  .story-figure--offset {
+    width: 72%;
+    justify-self: end;
+    margin-top: -40px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .story-figure--offset img { height: 280px; }
+
+  .story-title {
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    margin: 24px 0 28px;
+    max-width: 18ch;
+  }
+
+  .amber { color: var(--amber); }
+
+  .story-content p {
+    margin-bottom: 20px;
+    color: var(--warm-grey);
+    line-height: 1.7;
+  }
+
+  .story-quote {
+    display: block;
+    border-left: 2px solid var(--amber);
+    padding: 12px 0 12px 24px;
+    margin: 32px 0;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.22rem;
+    line-height: 1.45;
+    color: var(--rich-brown);
+  }
+
+  .story-quote cite {
+    display: block;
+    margin-top: 14px;
+    font-style: normal;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+    font-weight: 500;
+  }
+
+  .story-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(61, 35, 20, 0.12);
+  }
+
+  .story-stats > div { display: flex; flex-direction: column; gap: 6px; }
+
+  .stat-num {
+    font-size: 2rem;
+    color: var(--rich-brown);
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+  }
+
+  @media (max-width: 860px) {
+    .story-grid { grid-template-columns: 1fr; }
+    .story-figure--offset { width: 86%; margin-top: -24px; }
+    .story-figure img { height: 320px; }
+  }
+</style>

@@ -1,0 +1,201 @@
+---
+// Persistent site header with scroll-state transition
+const navLinks = [
+  { href: '#story', label: 'Our Story' },
+  { href: '#menu', label: 'Menu' },
+  { href: '#gallery', label: 'Gallery' },
+  { href: '#visit', label: 'Visit' },
+];
+---
+
+<header data-header class="site-header">
+  <div class="container header-row">
+    <a href="#top" class="logo">
+      <span class="logo-serif">Bow Bells</span>
+      <span class="logo-sub">Coffee · Bakery · Est. 1975</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      {navLinks.map((link) => (
+        <a href={link.href} class="nav-link">{link.label}</a>
+      ))}
+    </nav>
+
+    <div class="header-actions">
+      <a href="#order" class="btn btn-accent btn-sm">Order online</a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Toggle menu" data-menu-toggle>
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-nav" data-mobile-nav>
+    {navLinks.map((link) => (
+      <a href={link.href} class="mobile-nav-link">{link.label}</a>
+    ))}
+    <a href="#order" class="btn btn-accent">Order online</a>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 20px 0;
+    transition: background-color 0.4s var(--ease-out),
+      padding 0.4s var(--ease-out),
+      box-shadow 0.4s var(--ease-out);
+    background: transparent;
+  }
+
+  .site-header.is-scrolled {
+    background: rgba(245, 240, 232, 0.92);
+    backdrop-filter: saturate(160%) blur(14px);
+    -webkit-backdrop-filter: saturate(160%) blur(14px);
+    padding: 12px 0;
+    box-shadow: 0 1px 0 rgba(61, 35, 20, 0.06);
+  }
+
+  .header-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    color: var(--cream);
+    transition: color 0.4s var(--ease-out);
+  }
+
+  .logo-serif {
+    font-family: 'Fraunces', serif;
+    font-size: 1.7rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .logo-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-top: 6px;
+  }
+
+  .is-scrolled .logo { color: var(--rich-brown); }
+
+  .nav {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+  }
+
+  .nav-link {
+    position: relative;
+    color: var(--cream);
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 6px 0;
+    transition: color 0.3s var(--ease-out);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background: currentColor;
+    transition: width 0.4s var(--ease-out);
+  }
+
+  .nav-link:hover::after { width: 100%; }
+
+  .is-scrolled .nav-link { color: var(--rich-brown); }
+
+  .header-actions { display: flex; gap: 12px; align-items: center; }
+
+  .btn-sm { padding: 10px 20px; font-size: 0.82rem; }
+
+  .menu-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .menu-toggle span {
+    display: block;
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    height: 1.5px;
+    background: var(--cream);
+    transition: background-color 0.3s var(--ease-out), transform 0.3s var(--ease-out), top 0.3s var(--ease-out);
+  }
+
+  .menu-toggle span:nth-child(1) { top: 16px; }
+  .menu-toggle span:nth-child(2) { top: 26px; }
+
+  .is-scrolled .menu-toggle span { background: var(--rich-brown); }
+
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    padding: 28px clamp(1.25rem, 4vw, 2.5rem) 32px;
+    background: var(--cream);
+    border-top: 1px solid rgba(61, 35, 20, 0.08);
+  }
+
+  .mobile-nav-link {
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem;
+    color: var(--rich-brown);
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(61, 35, 20, 0.08);
+  }
+
+  @media (max-width: 860px) {
+    .nav, .header-actions { display: none; }
+    .menu-toggle { display: block; }
+    .site-header.is-open .mobile-nav { display: flex; }
+    .site-header.is-open {
+      background: var(--cream);
+      backdrop-filter: none;
+    }
+    .site-header.is-open .logo,
+    .site-header.is-open .nav-link { color: var(--rich-brown); }
+    .site-header.is-open .menu-toggle span:nth-child(1) { top: 21px; transform: rotate(45deg); background: var(--rich-brown); }
+    .site-header.is-open .menu-toggle span:nth-child(2) { top: 21px; transform: rotate(-45deg); background: var(--rich-brown); }
+  }
+</style>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const mobileLinks = document.querySelectorAll<HTMLAnchorElement>('.mobile-nav a');
+
+  toggle?.addEventListener('click', () => {
+    header?.classList.toggle('is-open');
+  });
+
+  mobileLinks.forEach((link) => {
+    link.addEventListener('click', () => header?.classList.remove('is-open'));
+  });
+</script>

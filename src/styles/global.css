@@ -1,0 +1,247 @@
+/* =======================================================
+   Bow Bells — Design Tokens & Global Styles
+   Editorial, warm, heritage-craft aesthetic
+   ======================================================= */
+
+:root {
+  /* Palette — warm, earthy, bakery-inspired */
+  --cream: #F5F0E8;
+  --cream-soft: #FAF6EF;
+  --cream-dark: #E8E0D4;
+  --clay: #E3D5C3;
+  --rich-brown: #3D2314;
+  --espresso: #241610;
+  --warm-grey: #6B5B4F;
+  --amber: #C17817;
+  --amber-dark: #A06314;
+  --sage: #7A8B69;
+  --irish-green: #169B62;
+  --charcoal: #1E1912;
+  --white: #FFFFFF;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(30, 25, 18, 0.06);
+  --shadow-md: 0 8px 32px rgba(30, 25, 18, 0.10);
+  --shadow-lg: 0 24px 64px rgba(30, 25, 18, 0.16);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Type scale */
+  --step--1: clamp(0.83rem, 0.80rem + 0.15vw, 0.95rem);
+  --step-0:  clamp(1.00rem, 0.95rem + 0.25vw, 1.15rem);
+  --step-1:  clamp(1.20rem, 1.10rem + 0.50vw, 1.45rem);
+  --step-2:  clamp(1.50rem, 1.30rem + 1.00vw, 1.90rem);
+  --step-3:  clamp(1.95rem, 1.60rem + 1.75vw, 2.60rem);
+  --step-4:  clamp(2.50rem, 1.95rem + 2.75vw, 3.80rem);
+  --step-5:  clamp(3.20rem, 2.30rem + 4.50vw, 5.60rem);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::selection {
+  background: var(--amber);
+  color: var(--white);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: var(--step-0);
+  background-color: var(--cream);
+  color: var(--rich-brown);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .serif {
+  font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+  font-weight: 450;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+
+h1 { font-size: var(--step-5); }
+h2 { font-size: var(--step-4); }
+h3 { font-size: var(--step-2); }
+h4 { font-size: var(--step-1); }
+
+p { font-size: var(--step-0); }
+
+.italic-serif {
+  font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 300;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+/* Layout */
+.container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/* Section */
+.section {
+  padding: clamp(4rem, 10vw, 8rem) 0;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--amber);
+}
+
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--amber);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border-radius: var(--radius-pill);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: transform 0.4s var(--ease-out),
+              background-color 0.3s var(--ease-out),
+              color 0.3s var(--ease-out),
+              box-shadow 0.3s var(--ease-out);
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--rich-brown);
+  color: var(--cream);
+}
+
+.btn-primary:hover {
+  background: var(--espresso);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-accent {
+  background: var(--amber);
+  color: var(--white);
+}
+
+.btn-accent:hover {
+  background: var(--amber-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--rich-brown);
+  border: 1px solid rgba(61, 35, 20, 0.25);
+}
+
+.btn-ghost:hover {
+  border-color: var(--rich-brown);
+  background: var(--rich-brown);
+  color: var(--cream);
+}
+
+.btn-ghost-light {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid rgba(245, 240, 232, 0.4);
+}
+
+.btn-ghost-light:hover {
+  background: var(--cream);
+  color: var(--rich-brown);
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Shared utility */
+.cream-bg { background: var(--cream); }
+.white-bg { background: var(--white); }
+.dark-bg { background: var(--espresso); color: var(--cream); }
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(61, 35, 20, 0.18), transparent);
+  margin: 0;
+}
+
+/* Responsive helpers */
+@media (max-width: 720px) {
+  .section {
+    padding: clamp(3rem, 12vw, 5rem) 0;
+  }
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

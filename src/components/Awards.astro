@@ -1,0 +1,89 @@
+---
+const awards = [
+  { year: '2023', title: 'Best Sausage Roll', body: 'Irish Food Awards, Northern Ireland' },
+  { year: '2022', title: 'Best Granola', body: 'Irish Food Awards, Northern Ireland' },
+  { year: '50 yrs', title: 'Serving Donaghadee', body: 'Four generations of bakers' },
+];
+---
+
+<section class="awards">
+  <div class="container">
+    <ul class="awards-grid">
+      {awards.map((a) => (
+        <li class="award reveal">
+          <span class="award-year serif">{a.year}</span>
+          <div>
+            <h3 class="award-title">{a.title}</h3>
+            <p class="award-body">{a.body}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .awards {
+    background: var(--cream);
+    padding: clamp(3rem, 6vw, 5rem) 0;
+    border-bottom: 1px solid rgba(61, 35, 20, 0.08);
+  }
+
+  .awards-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+  }
+
+  .award {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    padding-left: 24px;
+    border-left: 1px solid rgba(61, 35, 20, 0.18);
+  }
+
+  .award:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .award-year {
+    font-size: clamp(2.4rem, 3.5vw, 3.4rem);
+    font-weight: 400;
+    color: var(--amber);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+  }
+
+  .award-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: var(--rich-brown);
+  }
+
+  .award-body {
+    font-size: 0.85rem;
+    color: var(--warm-grey);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 860px) {
+    .awards-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .award {
+      padding-left: 0;
+      border-left: 0;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(61, 35, 20, 0.08);
+    }
+    .award:last-child { border-bottom: 0; padding-bottom: 0; }
+  }
+</style>
