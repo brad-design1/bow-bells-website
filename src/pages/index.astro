@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header';
+import Hero from '../components/Hero';
+import AwardsMarquee from '../components/AwardsMarquee';
+import ThisWeeksSpecials from '../components/ThisWeeksSpecials';
+import OurStory from '../components/OurStory';
+import Menu from '../components/Menu';
+import BehindTheScenes from '../components/BehindTheScenes';
+import Testimonials from '../components/Testimonials';
+import OrderCTA from '../components/OrderCTA';
+import VisitUs from '../components/VisitUs';
+import Footer from '../components/Footer';
+---
+
+<Layout title="Award-Winning Coffee House & Bakery">
+  <Header client:load />
+  <main>
+    <Hero client:load />
+    <AwardsMarquee client:load />
+    <ThisWeeksSpecials client:visible />
+    <OurStory client:visible />
+    <Menu client:visible />
+    <BehindTheScenes client:visible />
+    <Testimonials client:visible />
+    <OrderCTA client:visible />
+    <VisitUs client:visible />
+  </main>
+  <Footer client:visible />
+</Layout>
