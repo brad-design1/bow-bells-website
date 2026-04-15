@@ -61,9 +61,8 @@ export default function OurStory() {
 
             <p className="text-[#6B5B4F] text-lg mb-8 leading-relaxed">
               In 2020, the Waterworth family took the helm, bringing new energy while carefully 
-              preserving the traditions that made Bow Bells special. Today, our bakery continues 
-              to produce everything fresh daily—from our award-winning sausage rolls to 
-              artisanal sourdough.
+              preserving the traditions that made Bow Bells special. We believe great baking 
+              shouldn't cost a fortune—that's why we've kept our prices fair for nearly 50 years.
             </p>
 
             {/* Quote */}
