@@ -40,10 +40,10 @@ export default function Hero() {
 
         {/* Subtitle with ownership */}
         <p className="text-lg md:text-xl text-white/80 mb-2">
-          Award-winning quality at everyday prices
+          Serving Donaghadee since 1975
         </p>
         <p className="text-base text-white/60 mb-8">
-          Family-owned since 2020 • Serving Donaghadee since 1975
+          Family-owned since 2020 • Fresh baked daily, loved by generations
         </p>
 
         {/* CTAs */}
